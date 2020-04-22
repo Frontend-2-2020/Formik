@@ -10,7 +10,7 @@ class App extends Component {
   validate = values => {
     const errors = {};
 
-    const requiredFields = ["firstname", "lastname", "email", "message"];
+    const requiredFields = ["firstname", "lastname", "email", "message", "wysiwygdemo"];
     requiredFields.forEach(field => {
       if (!values[field]) {
         errors[field] = "required";
@@ -35,10 +35,11 @@ class App extends Component {
             firstname: "Jannick",
             lastname: "",
             email: "",
-            message: ""
+            message: "",
+            wysiwygdemo: "Hey vanuit de <strong>CKEDITOR</strong>"
           }}
         >
-          <MyForm />
+          {props => <MyForm {...props} />}
         </Formik>
       </div>
     );

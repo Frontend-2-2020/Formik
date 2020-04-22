@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { Form, Field } from "formik";
 import CustomErrorMessage from "./CustomErrorMessage";
+import CKEditor from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 class MyForm extends Component {
   render() {
+    console.log(this.props);
     return (
       <Form>
         <div className="row mt-4">
@@ -62,6 +65,26 @@ class MyForm extends Component {
                 rows="3"
               />
               <CustomErrorMessage name="message" />
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">
+                Example textarea
+              </label>
+
+              <CKEditor
+                name="wysiwygdemo"
+                editor={ ClassicEditor }
+                data={this.props.values.wysiwygdemo}
+                onChange={ ( event, editor ) => {
+                    const data = editor.getData();
+                    this.props.setFieldValue("wysiwygdemo", data);
+                }}
+              />
+              <CustomErrorMessage name="wysiwygdemo" />
             </div>
           </div>
         </div>
