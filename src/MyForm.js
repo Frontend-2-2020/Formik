@@ -6,7 +6,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 class MyForm extends Component {
   render() {
-    console.log(this.props);
+    const {setFieldValue, values} = this.props;
     return (
       <Form>
         <div className="row mt-4">
@@ -78,10 +78,10 @@ class MyForm extends Component {
               <CKEditor
                 name="wysiwygdemo"
                 editor={ ClassicEditor }
-                data={this.props.values.wysiwygdemo}
+                data={values.wysiwygdemo}
                 onChange={ ( event, editor ) => {
                     const data = editor.getData();
-                    this.props.setFieldValue("wysiwygdemo", data);
+                    setFieldValue("wysiwygdemo", data);
                 }}
               />
               <CustomErrorMessage name="wysiwygdemo" />

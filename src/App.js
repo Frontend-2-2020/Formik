@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="container">
         <nav className="navbar navbar-light bg-light mt-2">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             Our First Form
           </a>
         </nav>
