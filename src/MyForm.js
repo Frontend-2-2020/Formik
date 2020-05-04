@@ -3,9 +3,11 @@ import { Form, Field } from "formik";
 import CustomErrorMessage from "./CustomErrorMessage";
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { SketchPicker } from 'react-color';
 
 class MyForm extends Component {
   render() {
+    console.log(this.props);
     const {setFieldValue, values} = this.props;
     return (
       <Form>
@@ -88,6 +90,25 @@ class MyForm extends Component {
             </div>
           </div>
         </div>
+
+        <div className="row">
+          <div className="col">
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">
+                Example Colorpicker
+              </label>
+
+              <SketchPicker
+                color={ values.favoColor }
+                onChangeComplete={ color => setFieldValue('favoColor', color.hex) }
+              />
+
+              <CustomErrorMessage name="wysiwygdemo" />
+            </div>
+          </div>
+        </div>
+
+        
         <div className="row">
           <div className="col">
             <input

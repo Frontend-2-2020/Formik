@@ -36,7 +36,8 @@ class App extends Component {
             lastname: "",
             email: "",
             message: "",
-            wysiwygdemo: "Hey vanuit de <strong>CKEDITOR</strong>"
+            wysiwygdemo: "Hey vanuit de <strong>CKEDITOR</strong>",
+            favoColor: "#F67280"
           }}
         >
           {props => <MyForm {...props} />}
